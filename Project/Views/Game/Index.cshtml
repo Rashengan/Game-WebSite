@@ -1,0 +1,44 @@
+@model List<Game>
+<ul class="nav nav-pills nav-fill">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">All Games</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Action</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">Racing</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">Souls-Like</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">RPG</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">Sport</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">Simulation</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Horror</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
+        <div class="card-group">
+            @foreach(var games in Model)
+            {
+                <div class="col-2 bg-warning m-3 border-5 border-dark rounded-5" id="game_@games.GameID">
+                    <a asp-controller="Game" asp-action="Detail" asp-route-id="@games.GameID">
+                <img class="card-img-top img-fluid" src="~/img/@games.GameImage" alt="Card image cap" style="border-radius: 10%;">
+                </a>
+                <div class="card-body">
+                <h5 class="card-title">@games.GameName</h5>
+                <span>@games.GameTag</span>
+                </div>
+                </div>
+            }
+        </div>

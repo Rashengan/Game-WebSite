@@ -1,0 +1,23 @@
+@model Game
+<form asp-controller="Game" asp-action="CreateGame" method="post">
+    <div class="mb-3">
+        <label asp-for="GameName" class="form-label">Game Name : </label>
+        <input asp-for="GameName" class="form-control">
+
+        <label asp-for="GameDescription" class="form-label">Game Description : </label>
+        <textarea asp-for="GameDescription" class="form-control" ></textarea>
+
+        <label asp-for="GameImage" class="form-label">Game Image : </label>
+        <input asp-for="GameImage" class="form-control">
+
+        <label asp-for="Developer" class="form-label">Developer : </label>
+        <input asp-for="Developer" class="form-control">
+
+        <label asp-for="HaveAward" class="form-label">Have Award ? </label>
+        <input asp-for="HaveAward" class="form-check-input" type="checkbox" value="">
+
+        <label asp-for="GameTag" class="form-label">Game Tags : </label>
+        <input asp-for="GameTag" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Add Game</button>
+</form>

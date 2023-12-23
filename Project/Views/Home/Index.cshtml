@@ -1,0 +1,88 @@
+﻿@model List<Project.Models.Game>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<section>
+  <div class="text-center"><h1 class="display-3">Newest Game News</h1></div>
+  <div class="row">
+          <div class="col-3 ">
+            <img class="card-img-top rounded-5" src="~/img/GOTY2.jpg" alt="Card image cap">
+      </div>
+      <div class="col-9">
+        <h2><b>Another FromSoftware Game is Shutting Down on March 31</b></h2>
+        <p class="text-dark">FromSoftware has confirmed that it is shutting down the online servers for Armored Core: Verdict Day come Sunday, March 31, 2024. Armored Core: Verdict Day was originally released in 2013, so its servers are being shut down a little over a decade after its launch. However, 
+          Armored Core: Verdict Day isn't the only FromSoftware game having its online services shuttered on Sunday, March 31, 2024.</p>
+      </div>
+      <hr>
+  </div>
+      <div class="text-center"><h2 class="display-4">Awarded Games</h2></div>
+  <div class="card-group">
+    @foreach(var games in Model)
+  {
+    if(games.HaveAward){
+      <div class="col-2">
+        <div class="card text-white slidercard bg-dark m-3 border-5 border-warning rounded-pill"id="game_@games.GameID">
+          <a asp-controller="Game" asp-action="Detail" asp-route-id="@games.GameID" style="list-style-type: none;" >
+            <img class="card-img-top rounded-pill" src="~/img/@games.GameImage" alt="Card image cap">
+          </a>
+    <div class="card-body">
+      <h5 class="card-title text-center">@games.GameName</h5>
+      <p class="card-text text-center">@games.GameTag</p>
+      </div>
+    </div>
+    </div>
+    }
+  }
+  </div>
+  <div class="row">
+          <div class="col-3">
+            <img class="card-img-top rounded-5" src="~/img/Pokemon.jpg" alt="Card image cap">
+      </div>
+      <div class="col-9">
+        <h2>Pokemon Unite Giving Away Free Character License for the Holidays</h2>
+        <p class="">To celebrate the Holidays, Pokemon Unite is preparing to gift a special treat to players by offering a character license, 
+          marking a high point in the game's festive season offerings. 
+          his giveaway is part of a string of exciting events rolled out by the developers which kicked off at the start of the month and adds yet another way to obtain a Pokemon license for free.</p>
+      </div>
+      <hr>
+  </div>
+</div>
+</section>
+
+
+<section>
+      <div class="card-wrapper container-sm d-flex justify-content-around">
+         <div class="card col-3 m-3 border-5 border-dark rounded-5">
+             <img class="card-img-top img-fluid" src="~/img/Lego.jpg" alt="Card image cap" style="border-radius: 5%;">
+            <div class="card-body">
+              <h5 class="card-title">LEGO Fortnite Leak Reveals New Weapons Including Gravity Gun</h5>
+              <p class="card-text">A recent LEGO Fortnite leak suggests more weapons, including the Gravity Gun, will be added to the survival game in the future.</p>
+            </div>
+          </div>
+            <div class="card col-3 m-3 border-5 border-dark rounded-5">
+             <img class="card-img-top img-fluid" src="~/img/GOTY.jpg" alt="Card image cap" style="border-radius: 5%;">
+            <div class="card-body">
+              <h5 class="card-title">Baldur's Gate 3 Player Makes Hilarious Realization After Nearly 100 Hours of Gameplay</h5>
+              <p class="card-text">A Baldur's Gate 3 player makes a hilarious realization about the game after playing the massive RPG for nearly 100 hours.</p>
+            </div>
+          </div>
+              <div class="card col-3  m-3 border-5 border-dark rounded-5">
+             <img class="card-img-top img-fluid" src="~/img/Pokemon.jpg" alt="Card image cap" style="border-radius: 5%;">
+            <div class="card-body">
+              <h5 class="card-title">Pokemon Fan Shares Christmas Tree Decorated With Tons of Pokemon Plushies</h5>
+              <p class="card-text">A Pokemon fan transforms their Christmas tree with an array of plushies, celebrating the festive season in a uniquely charming way.</p>
+            </div>
+          </div>
+                   <div class="card col-3 m-3 border-5 border-dark rounded-5">
+             <img class="card-img-top img-fluid" src="~/img/GOTY2.jpg" alt="Card image cap" style="border-radius: 5%;">
+            <div class="card-body">
+              <h5 class="card-title">Epic Games Store Confirms Its 5th Free Mystery Game for December 23</h5>
+              <p class="card-text">The Epic Games Store confirms its free game for December 23, which fans will be able to claim (and should) until 10am CT on December 24.</p>
+            </div>
+          </div>
+      </div>
+          
+
+</section>
+
+

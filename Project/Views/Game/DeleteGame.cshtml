@@ -1,0 +1,10 @@
+@model Game
+<p>
+   Are you sure you want to delete <b>@Model.GameName</b> ?
+
+   <form asp-action="DeleteGame" method="post">
+    <input type="hidden" value="@Model.GameID" name="id">
+    <button type="submit" class="btn btn-danger">Yes</button>
+    <button asp-action="ListGame" type="submit" class="btn btn-success">No</button>
+   </form>
+</p>

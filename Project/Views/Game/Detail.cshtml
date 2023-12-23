@@ -1,0 +1,49 @@
+@model Game
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="project-info-box mt-0">
+                <h5>@Model.GameName</h5>
+                <p class="mb-0">@Model.GameDescription</p>
+            </div><!-- / project-info-box -->
+
+            <div class="project-info-box">
+                <p></p>
+                <p><b> Release Date:</b> 14.02.2020</p>
+                <hr>
+                <p><b>Developer :</b>@Model.Developer</p>
+                <hr>
+                <p ><b >Score :</b>@Model.GameScore <span>/10</span></p>
+                <hr>
+                <div><b>Tag :</b> <span class="btn btn-success">@Model.GameTag</span></div>
+                <hr>
+                
+                <h2 class="text-center">You Can Comment This Game</h2>
+                <form action="Comment" method="post">
+                    <div class="mb-3">
+                        <input type="email" class="form-control"placeholder="Comment Title">
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="3" placeholder="Your Comment"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark">Send</button>
+                </form>
+            </div>
+        </div>
+        <!-- / column -->
+
+        <div class="col-md-6">
+            <img src="~/img/@Model.GameImage" alt="project-image" class="rounded img-fluid">
+        </div><!-- / column -->
+    </div>
+    <div class="row">
+                <h1>Comments</h1>
+                <div class="comment mt-4 text-justify float-left">
+                    <h4></h4>
+                    <span></span>
+                    <br>
+                    <p></p>
+                </div>
+    </div>
+
+</div>

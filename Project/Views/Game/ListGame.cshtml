@@ -1,0 +1,26 @@
+@model List<Game>
+<table class="table table-sm table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Game Image</th>
+            <th scope="col">Game ID</th>
+            <th scope="col">Game Name</th>
+            <th scope="col">Game Description</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <a href="/game/CreateGame" class="btn btn-primary">Add Game</a>
+        @foreach(var games in Model){
+            <tr>
+            <td><img src="~/img/@games.GameImage" style="height: 50px;" alt=""></td>
+            <td>@games.GameID</td>
+            <td>@games.GameName</td>
+            <td>@games.GameDescription</td>
+            <td><a  asp-controller="Game" asp-action="DeleteGame" asp-route-id="@games.GameID" class="btn btn-danger">Delete</a> 
+            <a asp-controller="Game" asp-action="EditGame" asp-route-id="@games.GameID" class="btn btn-warning">Edit</a> 
+            <a href="" class="btn btn-success">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

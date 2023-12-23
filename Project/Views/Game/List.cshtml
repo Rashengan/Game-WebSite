@@ -1,0 +1,24 @@
+@model List<Game>
+    <div class="container mt-3">
+        <div class="card-group">
+            @foreach(var games in Model)
+            {
+                <div class="card bg-warning m-3 border-5 border-dark rounded-5" id="game_@games.GameID">
+                    <a asp-controller="Game" asp-action="Detail" asp-route-id="@games.GameID">
+                <img class="card-img-top img-fluid" src="~/img/@games.GameImage" alt="Card image cap" style="border-radius: 10%;">
+                </a>
+                <div class="card-body">
+                <h5 class="card-title">@games.GameName</h5>
+                <span>@games.GameTag</span>
+                </div>
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="card mb-3">
+        <div class="row">
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+        

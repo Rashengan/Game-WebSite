@@ -1,0 +1,23 @@
+@model IEnumerable<AppRole>
+    <a class="nav-link text-light" asp-area="" asp-controller="Role" asp-action="CreateRole">Create Role</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Role Name</th>
+            <th>Users</th>
+        </tr>
+        @foreach(var role in Model){
+            <tr>
+                <td>@role.Id</td>
+                <td>@role.Name</td>
+                <td asp-role-users="@role.Id">User List</td>
+                    <td class="d-flex">
+                        <a asp-action="EditUser" asp-route-id="@role.Id" class="btn btn-primary">Edit</a>
+                        <form  asp-action="DeleteUser" method="post">
+                            <input type="hidden" value="@role.Id" name="id">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+            </tr>
+        }
+    </table>
